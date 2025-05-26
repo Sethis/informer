@@ -36,7 +36,7 @@ class AbstractUserDAO(ABC):
     @abstractmethod
     async def insert_user(self, user: UserRequestDTO) -> UserDTO:
         """
-        User's upset. Inserts a user using the user object
+        User's upsert. Inserts a user using the user object
         or updating it in case of an identity conflict
         :param user: The object of the data
         that will be attached to the new user

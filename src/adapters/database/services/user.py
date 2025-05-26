@@ -62,7 +62,7 @@ class UserService:
     async def get_current_user(self) -> UserDTO:
         """
         This method safely retrieves the user by user_tg_id
-         and caches the result for current session di scope
+        and caches the result for current session di scope
         :return: UserDTO or ValueError if user undefined
         """
 
@@ -84,7 +84,7 @@ class UserService:
 
     async def insert_user(self, user: UserRequestDTO) -> UserDTO:
         """
-        User's upset. Inserts a user using the user object
+        User's upsert. Inserts a user using the user object
         or updating it in case of an identity conflict
         :param user: The object of the data
         that will be attached to the new user
@@ -117,14 +117,12 @@ class UserService:
         result = await self._user_dao.get_encoded_data(data_id=code_id)
 
         if not result:
-            print(1)
             return False
 
         if self._encoder.encode(unenctypted_code) != result.payload:
             return False
 
         if not await self._user_dao.delete_encoded_data(code_id):
-            print(2)
             return False
 
         await self._common_dao.commit()

@@ -1,5 +1,5 @@
 ## Installation guide: 
-1. pip install -r requirement.txt
+1. pip install -r requirements.txt
 2. Create an env.env file based on the example of the env.example file
 3. Use the `alembic upgrade head` command
 
